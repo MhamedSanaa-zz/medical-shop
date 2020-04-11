@@ -19,16 +19,9 @@ class CreateSupplyOrderDetailsTable extends Migration
             $table->unsignedBigInteger('medecine_id');
             $table->integer('batch_nbr');
             $table->integer('qty');
-<<<<<<< HEAD
-            $table->timestamps();
             $table->foreign('supply_order_id')->references('id')->on('supply_orders');
             $table->foreign('medecine_id')->references('id')->on('medecines');
-=======
             $table->timestamps = false;
-            $table->foreign('supply_orderid')->references('id')->on('supply_orders');
-            $table->foreign('medid')->references('id')->on('medecines');
->>>>>>> 1a2fe8876283d0c49e16e5717c20c0912515c9a0
-
         });
     }
 
