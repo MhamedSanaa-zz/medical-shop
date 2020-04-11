@@ -15,12 +15,12 @@ class CreateInvoiceDetailsTable extends Migration
     {
         Schema::create('invoice_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('invoiceid');
-            $table->unsignedBigInteger('medid');
+            $table->unsignedBigInteger('invoice_id');
+            $table->unsignedBigInteger('medecine_id');
             $table->integer('qty');
             $table->timestamps();
-            $table->foreign('invoiceid')->references('id')->on('invoices');
-            $table->foreign('medid')->references('id')->on('medecines');
+            $table->foreign('invoice_id')->references('id')->on('invoices');
+            $table->foreign('medecine_id')->references('id')->on('medecines');
         });
     }
 

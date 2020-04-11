@@ -15,12 +15,12 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('medecineid');
+            $table->unsignedBigInteger('medecine_id');
             $table->integer('batch_nbr');
             $table->integer('qty');
             $table->date('expiration_date');
             $table->timestamps();
-            $table->foreign('medecineid')->references('id')->on('medecines');
+            $table->foreign('medecine_id')->references('id')->on('medecines');
         });
     }
 

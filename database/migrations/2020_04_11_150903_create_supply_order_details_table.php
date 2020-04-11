@@ -15,13 +15,13 @@ class CreateSupplyOrderDetailsTable extends Migration
     {
         Schema::create('supply_order_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('supply_orderid');
-            $table->unsignedBigInteger('medid');
+            $table->unsignedBigInteger('supply_order_id');
+            $table->unsignedBigInteger('medecine_id');
             $table->integer('batch_nbr');
             $table->integer('qty');
             $table->timestamps();
-            $table->foreign('supply_orderid')->references('id')->on('supply_orders');
-            $table->foreign('medid')->references('id')->on('medecines');
+            $table->foreign('supply_order_id')->references('id')->on('supply_orders');
+            $table->foreign('medecine_id')->references('id')->on('medecines');
 
         });
     }

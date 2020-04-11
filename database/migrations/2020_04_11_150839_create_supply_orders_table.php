@@ -15,7 +15,7 @@ class CreateSupplyOrdersTable extends Migration
     {
         Schema::create('supply_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('supplierid');
+            $table->unsignedBigInteger('supplier_id');
             $table->timestamps();
             $table->foreign('supplierid')->references('id')->on('suppliers');
         });
