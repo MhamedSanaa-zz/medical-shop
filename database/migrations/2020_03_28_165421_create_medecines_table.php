@@ -21,7 +21,12 @@ class CreateMedecinesTable extends Migration
             $table->tinyInteger('status');
             $table->double('price', 6, 3);
             $table->text('description');
+<<<<<<< HEAD
             $table->foreign('type_id')->references('id')->on('types');
+=======
+            $table->timestamps = false;
+            $table->foreign('typeid')->references('id')->on('types');
+>>>>>>> 1a2fe8876283d0c49e16e5717c20c0912515c9a0
         });
     }
 
