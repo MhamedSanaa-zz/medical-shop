@@ -19,7 +19,7 @@ class CreateSupplyOrderDetailsTable extends Migration
             $table->unsignedBigInteger('medid');
             $table->integer('batch_nbr');
             $table->integer('qty');
-            $table->timestamps();
+            $table->timestamps = false;
             $table->foreign('supply_orderid')->references('id')->on('supply_orders');
             $table->foreign('medid')->references('id')->on('medecines');
 

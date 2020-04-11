@@ -18,7 +18,7 @@ class CreateInvoiceDetailsTable extends Migration
             $table->unsignedBigInteger('invoiceid');
             $table->unsignedBigInteger('medid');
             $table->integer('qty');
-            $table->timestamps();
+            $table->timestamps = false;
             $table->foreign('invoiceid')->references('id')->on('invoices');
             $table->foreign('medid')->references('id')->on('medecines');
         });
