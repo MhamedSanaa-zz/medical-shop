@@ -17,10 +17,9 @@ class CreateMedecinesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',100);
             $table->string('generic',100);
-            $table->bigInteger('typeid');
-            $table->string('status',100);
+            $table->unsignedBigInteger('typeid');
+            $table->tinyInteger('status');
             $table->double('price', 6, 3);
-            $table->string('status');
             $table->text('description');
             $table->foreign('typeid')->references('id')->on('types');
         });
