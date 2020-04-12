@@ -17,7 +17,7 @@ class CreateSupplyOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('supplier_id');
             $table->timestamps();
-            $table->foreign('supplierid')->references('id')->on('suppliers');
+            $table->foreign('supplier_id')->references('id')->on('suppliers');
         });
     }
 

@@ -10,8 +10,8 @@ $factory->define(supply_order_detail::class, function (Faker $faker) {
     return [
        'batch_nbr'=>$faker->randomDigit,
        'qty'=>$faker->randomDigit,
-       'supply_orderid' => supply_Order::get('id')->random(),
-       'medid' => medecine::get('id')->random(),
+       'supply_order_id' => supply_order::get('id')->random(),
+       'medecine_id' => medecine::get('id')->random(),
        'created_at' => now(),
         'updated_at' => now(),
 

@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(supply_order::class, function (Faker $faker) {
     return [
-        'supplierid' => supplier::get('id')->random(),
+        'supplier_id' => supplier::get('id')->random(),
         'created_at' => now(),
         'updated_at' => now(),
     ];

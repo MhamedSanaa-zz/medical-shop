@@ -12,7 +12,7 @@ $factory->define(medecine::class, function (Faker $faker) {
         'status'=>$faker->randomDigit,
         'price'=>$faker->randomFloat(3, 2, 1000),
         'description'=>$faker->sentence,
-        'typeid' => Type::get('id')->random(),
+        'typeid' => type::get('id')->random(),
 
     ];
 });

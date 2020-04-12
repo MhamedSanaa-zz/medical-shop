@@ -10,7 +10,7 @@ $factory->define(stock::class, function (Faker $faker) {
         'batch_nbr'=>$faker->randomDigit,
         'qty'=>$faker->randomDigit,
         'expiration_date'=>$faker->now(),
-        'medecineid' => medecine::get('id')->random(),
+        'medecine_id' => medecine::get('id')->random(),
         'created_at' => now(),
         'updated_at' => now(),
     ];
