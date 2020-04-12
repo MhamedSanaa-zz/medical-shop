@@ -10,8 +10,8 @@ class invoice extends Model
     {
         $this->belongsTo('App\customer');
     }
-    public function invoice_details()
+    public function medecines()
     {
-        $this->hasMany('App\invoice_detail');
+        return $this->belongsToMany('App\medecine')->using('App\invoice_detail');
     }
 }

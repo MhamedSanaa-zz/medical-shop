@@ -20,7 +20,6 @@ class CreateInvoiceDetailsTable extends Migration
             $table->integer('qty');
             $table->foreign('invoice_id')->references('id')->on('invoices');
             $table->foreign('medecine_id')->references('id')->on('medecines');
-            $table->timestamps = false;
         });
     }
 

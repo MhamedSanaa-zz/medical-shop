@@ -22,7 +22,7 @@ $factory->define(User::class, function (Faker $faker) {
         'first_name' => $faker->name,
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'roleid' => role::get('id')->random(),
+        'role_id' => role::get('id')->random(),
         'phone' => $faker->randomDigitNotNull,
         'address' => $faker->address,
         'username'=>$faker->userName,

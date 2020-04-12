@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\supply_orders;
+use App\supply_order;
 class Supply_ordersTableSeeder extends Seeder
 {
     /**

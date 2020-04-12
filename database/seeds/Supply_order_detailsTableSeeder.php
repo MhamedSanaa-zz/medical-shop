@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\supply_order_details;
+use App\supply_order_detail;
 class Supply_order_detailsTableSeeder extends Seeder
 {
     /**
@@ -11,7 +11,7 @@ class Supply_order_detailsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(supply_order_details::class,10)->create();
+        factory(supply_order_detail::class,10)->create();
 
     }
 }

@@ -21,7 +21,6 @@ class CreateSupplyOrderDetailsTable extends Migration
             $table->integer('qty');
             $table->foreign('supply_order_id')->references('id')->on('supply_orders');
             $table->foreign('medecine_id')->references('id')->on('medecines');
-            $table->timestamps = false;
         });
     }
 
