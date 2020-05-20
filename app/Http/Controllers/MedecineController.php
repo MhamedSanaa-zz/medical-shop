@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\type;
 use App\medecine;
+use App\invoice_detail;
 use Illuminate\Http\Request;
 
 class MedecineController extends Controller
@@ -14,7 +15,9 @@ class MedecineController extends Controller
      */
     public function index()
     {
-        //
+        $medecines=medecine::all();
+       $types=type::all();
+        return view('medecine.index',compact('medecines','types'));
     }
 
     /**
@@ -23,8 +26,9 @@ class MedecineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    { 
+        $types=type::all();
+        return view('medecine.create',compact('types'));
     }
 
     /**
@@ -35,7 +39,18 @@ class MedecineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->validationRules());
+        $medecine=new medecine();
+        $medecine->name=$request->name;
+        $medecine->generic=$request->generic;
+        $medecine->type_id=$request->type;
+        $medecine->status=1;
+        $medecine->price=$request->price;
+        $medecine->description=$request->description;
+       
+        $medecine->save();
+
+      return redirect()->route('medecine.index')->with('addmedecine','medecine added');
     }
 
     /**
@@ -56,8 +71,8 @@ class MedecineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(medecine $medecine)
-    {
-        //
+    {   $types=type::all();
+        return view('medecine.edit', compact('medecine','types'));
     }
 
     /**
@@ -69,7 +84,11 @@ class MedecineController extends Controller
      */
     public function update(Request $request, medecine $medecine)
     {
-        //
+        $validatedData=$request->validate($this->validationRules());
+        $medecine->update($validatedData);
+
+        return redirect()->route('medecine.index')
+                        ->with('addmedecine','medecine informations updated successfully');
     }
 
     /**
@@ -80,6 +99,20 @@ class MedecineController extends Controller
      */
     public function destroy(medecine $medecine)
     {
-        //
+        
+        $medecine->delete();
+
+        return redirect()->route('medecine.index')->with('addmedecine', 'Booking deleted successfully');
+     
+    }
+    private function validationRules()
+    {
+        return [
+            'name' => 'required',
+            'generic' => 'required',
+            'price' => 'required',
+            'description' => 'required'
+
+        ];
     }
 }
