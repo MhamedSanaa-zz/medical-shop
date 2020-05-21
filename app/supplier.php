@@ -8,6 +8,6 @@ class supplier extends Model
 {
     public function supply_order()
     {
-        $this->hasMany('App\supply_order');
+        return $this->hasMany('App\supply_order');
     }
 }

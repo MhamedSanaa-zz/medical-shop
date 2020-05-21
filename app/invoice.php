@@ -8,7 +8,7 @@ class invoice extends Model
 {
     public function customer()
     {
-        $this->belongsTo('App\customer');
+        return $this->belongsTo('App\customer');
     }
     public function medecines()
     {

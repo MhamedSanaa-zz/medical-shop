@@ -9,11 +9,11 @@ class medecine extends Model
     public $timestamps = false;
     public function type()
     {
-        $this->belongsTo('App\type');
+        return $this->belongsTo('App\type');
     }
     public function stocks()
     {
-        $this->hasMany('App\stock');
+        return $this->hasMany('App\stock');
     }
     public function supply_orders()
     {

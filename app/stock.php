@@ -8,6 +8,6 @@ class stock extends Model
 {
     public function medecine()
     {
-        $this->belongsTo('App\medecine');
+        return $this->belongsTo('App\medecine');
     }
 }

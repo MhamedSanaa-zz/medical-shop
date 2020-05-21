@@ -8,6 +8,6 @@ class customer extends Model
 {
     public function invoices()
     {
-        $this->hasMany('App\invoice');
+        return $this->hasMany('App\invoice');
     }
 }

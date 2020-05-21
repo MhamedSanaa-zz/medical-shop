@@ -8,7 +8,7 @@ class supply_order extends Model
 {
     public function supplier()
     {
-        $this->belongsTo('App\supplier');
+        return $this->belongsTo('App\supplier');
     }
     public function medecines()
     {
