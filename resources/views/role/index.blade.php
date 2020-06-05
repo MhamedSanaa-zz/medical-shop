@@ -27,7 +27,7 @@
   </button>
 </div>
 @endif
-<a href="{{ route('roles.create') }}" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">add role</a>
+<a href="{{ route('role.create') }}" class="btn btn-outline-primary btn-lg float-right" type="button" aria-pressed="true">add role</a>
     <h1>lise of roles</h1>
     <table class='table'>
        <thead>
@@ -40,11 +40,11 @@
         <tr>
             <td>{{ $role->role }}</td>
             <td>
-              <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-outline-info">Edit</a>
+              <a href="{{ route('role.edit', $role->id) }}" class="btn btn-outline-info">Edit</a>
               <a href="#" class="btn btn-outline-danger" 
                 onclick="event.preventDefault();
                 document.querySelector('#delete-form').submit()">Delete</a>
-              <form id="delete-form" action="{{ route('roles.destroy', $role->id) }}" method="POST" style="display: none;">
+              <form id="delete-form" action="{{ route('role.destroy', $role->id) }}" method="POST" style="display: none;">
                 @csrf
                 @method('DELETE')
               </form>

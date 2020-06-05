@@ -5,7 +5,7 @@
 @section('content')
     <fieldset>
         <legend>edit customer</legend>
-        <form action="{{ route('customers.update', $customer->id) }}" method="post">
+        <form action="{{ route('customer.update', $customer->id) }}" method="post">
         @csrf
         @method('PATCH')
             <div class="row">

@@ -27,7 +27,7 @@
   </button>
 </div>
 @endif
-<a href="{{ route('suppliers.create') }}" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">add supplier</a>
+<a href="{{ route('supplier.create') }}" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">add supplier</a>
     <h1>lise of suppliers</h1>
     <table class='table'>
        <thead>
@@ -46,12 +46,12 @@
             <td>{{ $supplier->email }}</td>
             <td>{{ $supplier->address }}</td>
             <td>
-              <a href="{{ route('suppliers.edit', $supplier->id) }}" class="btn btn-outline-info">Edit</a>
-              <a href="{{ route('suppliers.show', $supplier->id) }}" class="btn btn-outline-info">details</a>
+              <a href="{{ route('supplier.edit', $supplier->id) }}" class="btn btn-outline-info">Edit</a>
+              <a href="{{ route('supplier.show', $supplier->id) }}" class="btn btn-outline-info">details</a>
               <a href="#" class="btn btn-outline-danger" 
                 onclick="event.preventDefault();
                 document.querySelector('#delete-form').submit()">Delete</a>
-              <form id="delete-form" action="{{ route('suppliers.destroy', $supplier->id) }}" method="POST" style="display: none;">
+              <form id="delete-form" action="{{ route('supplier.destroy', $supplier->id) }}" method="POST" style="display: none;">
                 @csrf
                 @method('DELETE')
               </form>

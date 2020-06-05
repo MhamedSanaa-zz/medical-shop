@@ -14,7 +14,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types=type::all();
+        return view('type.index' ,compact('types'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('type.create');
     }
 
     /**
@@ -35,7 +36,10 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $type = new type;
+        $type->type = $request->type;
+        $type->save();
+        return redirect()->route('type.index')->with('ADDtype','type addition successful');
     }
 
     /**
@@ -57,7 +61,7 @@ class TypeController extends Controller
      */
     public function edit(type $type)
     {
-        //
+        return view('type.edit', compact('type'));
     }
 
     /**
@@ -69,7 +73,8 @@ class TypeController extends Controller
      */
     public function update(Request $request, type $type)
     {
-        //
+        $type->update($request->all());
+        return redirect()->route('type.index')->with('EDITtype','type editing successful');
     }
 
     /**
@@ -80,6 +85,8 @@ class TypeController extends Controller
      */
     public function destroy(type $type)
     {
-        //
+        $type->delete();
+
+        return redirect()->route('type.index')->with('DELtype','type deleted successfully');
     }
 }

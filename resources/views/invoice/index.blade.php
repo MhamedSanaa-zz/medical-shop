@@ -3,7 +3,7 @@
 @section('title','invoices')
 
 @section('content')
-<a href="{{ route('invoices.create') }}" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">add invoice</a>
+<a href="{{ route('invoice.create') }}" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">add invoice</a>
     <h1>lise of invoices</h1>
     <table class='table table-hover'>
        <thead>
@@ -15,7 +15,7 @@
        <tbody>
        @foreach($invoices as $invoice)
         <a href="">
-            <tr  onclick="document.location='{{ route('invoices.show', $invoice->id) }}'" style="cursor:pointer">
+            <tr  onclick="document.location='{{ route('invoice.show', $invoice->id) }}'" style="cursor:pointer">
                 <td>{{ $invoice->customer->name }}</td>
                 <td>{{ $invoice->created_at }}</td>
                 

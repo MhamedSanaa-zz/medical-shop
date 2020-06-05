@@ -5,7 +5,7 @@
 @section('content')
     <fieldset>
         <legend>new customer</legend>
-        <form action="{{ route('customers.store') }}" method="post">
+        <form action="{{ route('customer.store') }}" method="post">
         @csrf
             <div class="row">
                 <div class="col">

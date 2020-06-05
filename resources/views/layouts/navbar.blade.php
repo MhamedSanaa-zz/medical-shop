@@ -11,19 +11,28 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="/customers" class="nav-link">customers</a>
+                            <a href="{{ route('customer.index') }}" class="nav-link">customers</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/invoices" class="nav-link">invoices</a>
+                            <a href="{{ route('supplier.index') }}" class="nav-link">suppliers</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/suppliers" class="nav-link">suppliers</a>
+                            <a href="{{ route('medecine.index') }}" class="nav-link">medecine</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/orders" class="nav-link">orders</a>
+                            <a href="{{ route('stock.index') }}" class="nav-link">stock</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/roles" class="nav-link">roles</a>
+                            <a href="{{ route('invoice.index') }}" class="nav-link">invoices</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('supplyOrder.index') }}" class="nav-link">orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('role.index') }}" class="nav-link">roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('type.index') }}" class="nav-link">types</a>
                         </li>
                     </ul>
 

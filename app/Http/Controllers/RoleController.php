@@ -39,7 +39,7 @@ class RoleController extends Controller
         $role = new role;
         $role->role = $request->role;
         $role->save();
-        return redirect()->route('roles.index')->with('ADDrole','role addition successful');
+        return redirect()->route('role.index')->with('ADDrole','role addition successful');
     }
 
     /**
@@ -74,7 +74,7 @@ class RoleController extends Controller
     public function update(Request $request, role $role)
     {
         $role->update($request->all());
-        return redirect()->route('roles.index')->with('EDITrole','role editing successful');
+        return redirect()->route('role.index')->with('EDITrole','role editing successful');
     }
 
     /**
@@ -87,6 +87,6 @@ class RoleController extends Controller
     {
         $role->delete();
 
-        return redirect()->route('roles.index')->with('DELrole','role deleted successfully');
+        return redirect()->route('role.index')->with('DELrole','role deleted successfully');
     }
 }

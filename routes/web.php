@@ -17,11 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
 
-Route::resource('/customers', 'CustomerController');
-Route::resource('/roles', 'RoleController');
-Route::resource('/invoices', 'invoiceController');
-Route::resource('/suppliers', 'SupplierController');
-Route::resource('/orders', 'SupplyOrderController');
-
+    //Route::get('/home', 'AppController@home')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/medecine', 'MedecineController');
+    Route::resource('/stock', 'StockController');
+    Route::resource('/supplyOrder', 'SupplyOrderController');
+    Route::resource('/supplyOrderDetail', 'SupplyOrderDetailController');
+    Route::resource('/customer', 'CustomerController');
+    Route::resource('/role', 'RoleController');
+    Route::resource('/invoice', 'invoiceController');
+    Route::resource('/supplier', 'SupplierController');
+    Route::resource('/type', 'TypeController');
+});

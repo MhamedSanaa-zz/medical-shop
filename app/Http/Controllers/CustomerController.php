@@ -42,7 +42,7 @@ class CustomerController extends Controller
         $customer->email = $request->email;
         $customer->address = $request->address;
         $customer->save();
-        return redirect()->route('customers.index')->with('ADDcustomer','customer addition successful');
+        return redirect()->route('customer.index')->with('ADDcustomer','customer addition successful');
     }
 
     /**
@@ -77,7 +77,7 @@ class CustomerController extends Controller
     public function update(Request $request, customer $customer)
     {
         $customer->update($request->all());
-        return redirect()->route('customers.index')->with('EDITcustomer','customer editing successful');
+        return redirect()->route('customer.index')->with('EDITcustomer','customer editing successful');
     }
 
     /**
@@ -90,6 +90,6 @@ class CustomerController extends Controller
     {
         $customer->delete();
 
-        return redirect()->route('customers.index')->with('DELcustomer','customer deleted successfully');
+        return redirect()->route('customer.index')->with('DELcustomer','customer deleted successfully');
     }
 }

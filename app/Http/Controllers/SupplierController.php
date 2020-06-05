@@ -42,7 +42,7 @@ class SupplierController extends Controller
         $supplier->email = $request->email;
         $supplier->address = $request->address;
         $supplier->save();
-        return redirect()->route('suppliers.index')->with('ADDsupplier','supplier addition successful');
+        return redirect()->route('supplier.index')->with('ADDsupplier','supplier addition successful');
     }
 
     /**
@@ -77,7 +77,7 @@ class SupplierController extends Controller
     public function update(Request $request, supplier $supplier)
     {
         $supplier->update($request->all());
-        return redirect()->route('suppliers.index')->with('EDITsupplier','supplier editing successful');
+        return redirect()->route('supplier.index')->with('EDITsupplier','supplier editing successful');
     }
 
     /**
@@ -90,6 +90,6 @@ class SupplierController extends Controller
     {
         $supplier->delete();
 
-        return redirect()->route('suppliers.index')->with('DELsupplier','supplier deleted successfully');
+        return redirect()->route('supplier.index')->with('DELsupplier','supplier deleted successfully');
     }
 }

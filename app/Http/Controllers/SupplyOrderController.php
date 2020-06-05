@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\supplier;
 use App\supply_order;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,8 @@ class SupplyOrderController extends Controller
      */
     public function index()
     {
-        //
+        $suppliers=supplier::all();
+        return view('supply_order.index',compact('suppliers'));
     }
 
     /**
@@ -35,7 +36,12 @@ class SupplyOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $supply_order=new supply_order();
+        $supply_order->supplier_id=$request->supplier_id;
+        $supply_order->save();
+        $supplier_order_id=$supply_order->id;
+        return redirect()->route('supplyOrderDetail.create',compact('supplier_order_id'));
     }
 
     /**
