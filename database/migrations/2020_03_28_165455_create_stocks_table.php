@@ -20,7 +20,7 @@ class CreateStocksTable extends Migration
             $table->integer('qty');
             $table->date('expiration_date');
             $table->timestamps();
-            $table->foreign('medecine_id')->references('id')->on('medecines')->onDelete('cascade');;
+            $table->foreign('medecine_id')->references('id')->on('medecines')->onDelete('cascade');
         });
     }
 

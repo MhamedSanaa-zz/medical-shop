@@ -40,17 +40,19 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate($this->validationRules());
-        $stock=new stock();
-        $stock->qty=$request->qty;
-        $stock->batch_nbr=$request->batch_nbr;
-        $stock->expiration_date=$request->expiration_date;
-        $stock->medecine_id=$request->medecine_id;
+            $stock=new stock();
+            $stock->qty=$request->qty;
+            $stock->batch_nbr= $request->batch_nbr;
+            $stock->expiration_date=$request->expiration_date;
+            $stock->medecine_id=$request->medecine_id;
+        
+       
         $stock->save();
 
-        $data=DB::table('stocks')->join('medecines','medecines.id','=','stocks.medecine_id')->select('stocks.id','stocks.qty','stocks.expiration_date','stocks.batch_nbr','medecines.name')
-        ->get();    
-        return redirect()->route('stock.index',compact('data'))->with('addstock','stock added successfully');
+          
+        return redirect()->route('stock.index')->with('addstock','stock added successfully');
     }
 
     /**
@@ -104,18 +106,16 @@ class StockController extends Controller
     public function destroy(stock $stock)
     {
         $stock->delete();
-        $data=DB::table('stocks')->join('medecines','medecines.id','=','stocks.medecine_id')->select('stocks.id','stocks.qty','stocks.expiration_date','stocks.batch_nbr','medecines.name')
-        ->get();    
-        return redirect()->route('stock.index',compact('data'))->with('addstock','stock deleted successfully');
+            
+        return redirect()->route('stock.index')->with('addstock','stock deleted successfully');
     }
     private function validationRules()
     {
         return [
             'medecine_id' => 'required',
             'qty' => 'required',
-            'batch_nbr' => 'required',
+            'batch_nbr' => ['required','unique:stocks'],
             'expiration_date' => 'required|date'
-
         ];
     }
 }

@@ -14,8 +14,7 @@
 </div>
 
 <div class="form-group">
-<label for="batch_nbr">batch number</label>
-<input type="number" class="form-control" name="batch_nbr" >
+<input type="hidden"  name="batch_nbr" value="<?php echo rand(0,10000000) ?>" >
 @error('batch_nbr')<div class="text-danger">{{ $message }}</div> @enderror
 
 </div>

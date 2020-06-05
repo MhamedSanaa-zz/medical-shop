@@ -23,4 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', 'AppController@home')->name('home');
     Route::resource('/medecine', 'MedecineController');
     Route::resource('/stock', 'StockController');
+    Route::resource('/supplier', 'SupplierController');
+    Route::resource('/supplyOrder', 'SupplyOrderController');
+    Route::resource('/supplyOrderDetail', 'SupplyOrderDetailController');
 });

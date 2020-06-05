@@ -14,7 +14,8 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        $suppliers=supplier::all();
+        return view('supplier.index',compact('suppliers'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('supplier.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->validationRules());
+        $supplier=new supplier();
+        $supplier->name=$request->name;
+        $supplier->phone=$request->phone;
+        $supplier->address=$request->address;
+        $supplier->email=$request->email;
+
+        $supplier->save();
+        return redirect()->route('supplier.index')->with('addsupplier','supplier added successfully');
     }
 
     /**
@@ -57,7 +66,7 @@ class SupplierController extends Controller
      */
     public function edit(supplier $supplier)
     {
-        //
+        return view('supplier.edit',compact('supplier'));
     }
 
     /**
@@ -69,7 +78,11 @@ class SupplierController extends Controller
      */
     public function update(Request $request, supplier $supplier)
     {
-        //
+        $validatedData=$request->validate($this->validationRules());
+        $supplier->update($validatedData);
+
+        return redirect()->route('supplier.index')
+                        ->with('addsupplier','stock informations updated successfully');
     }
 
     /**
@@ -80,6 +93,17 @@ class SupplierController extends Controller
      */
     public function destroy(supplier $supplier)
     {
-        //
+        $supplier->delete();
+        return redirect()->route('supplier.index')->with('addsupplier','supplier deleted successfully');
+    }
+
+    private function validationRules()
+    {
+        return [
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required'
+        ];
     }
 }
