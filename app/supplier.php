@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class supplier extends Model
 {
-    public function supply_order()
+    protected $guarded = []; 
+    public function supply_orders()
     {
         return $this->hasMany('App\supply_order');
     }

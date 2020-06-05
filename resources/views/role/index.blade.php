@@ -1,57 +1,50 @@
 @extends('layouts.app')
 
-@section('title','customers')
+@section('title','roles')
 
 @section('content')
-@if(session('ADDcustomer'))
+@if(session('ADDrole'))
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>{{ session('ADDcustomer') }}</strong>
+  <strong>{{ session('ADDrole') }}</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 @endif
-@if(session('DELcustomer'))
+@if(session('EDITrole'))
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>{{ session('DELcustomer') }}</strong>
+  <strong>{{ session('EDITrole') }}</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 @endif
-@if(session('EDITcustomer'))
+@if(session('DELrole'))
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>{{ session('EDITcustomer') }}</strong>
+  <strong>{{ session('DELrole') }}</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 @endif
-<a href="{{ route('customers.create') }}" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">add customer</a>
-    <h1>lise of customers</h1>
+<a href="{{ route('roles.create') }}" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">add role</a>
+    <h1>lise of roles</h1>
     <table class='table'>
        <thead>
         <tr>
             <th>name</th>
-            <th>phone</th>
-            <th>eamil</th>
-            <th>address</th>
         </tr>
        </thead>
        <tbody>
-       @foreach($customers as $customer)
+       @foreach($roles as $role)
         <tr>
-            <td>{{ $customer->name }}</td>
-            <td>{{ $customer->phone }}</td>
-            <td>{{ $customer->email }}</td>
-            <td>{{ $customer->address }}</td>
+            <td>{{ $role->role }}</td>
             <td>
-              <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-outline-info">Edit</a>
-              <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-outline-info">details</a>
+              <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-outline-info">Edit</a>
               <a href="#" class="btn btn-outline-danger" 
                 onclick="event.preventDefault();
                 document.querySelector('#delete-form').submit()">Delete</a>
-              <form id="delete-form" action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display: none;">
+              <form id="delete-form" action="{{ route('roles.destroy', $role->id) }}" method="POST" style="display: none;">
                 @csrf
                 @method('DELETE')
               </form>

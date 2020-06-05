@@ -12,6 +12,6 @@ class invoice extends Model
     }
     public function medecines()
     {
-        return $this->belongsToMany('App\medecine')->using('App\invoice_detail');
+        return $this->belongsToMany('App\medecine','invoice_details')->using('App\invoice_detail')->withPivot('qty');
     }
 }

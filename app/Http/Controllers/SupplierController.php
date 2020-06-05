@@ -15,7 +15,7 @@ class SupplierController extends Controller
     public function index()
     {
         $suppliers = supplier::all();
-        return $suppliers;
+        return view('supplier.index' ,compact('suppliers'));
     }
 
     /**
@@ -25,7 +25,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('supplier.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $supplier = new supplier;
+        $supplier->name = $request->name;
+        $supplier->phone = $request->phone;
+        $supplier->email = $request->email;
+        $supplier->address = $request->address;
+        $supplier->save();
+        return redirect()->route('suppliers.index')->with('ADDsupplier','supplier addition successful');
     }
 
     /**
@@ -47,7 +53,7 @@ class SupplierController extends Controller
      */
     public function show(supplier $supplier)
     {
-        //
+        return view('supplier.show')->with('supplier', $supplier);
     }
 
     /**
@@ -58,7 +64,7 @@ class SupplierController extends Controller
      */
     public function edit(supplier $supplier)
     {
-        //
+        return view('supplier.edit', compact('supplier'));
     }
 
     /**
@@ -70,7 +76,8 @@ class SupplierController extends Controller
      */
     public function update(Request $request, supplier $supplier)
     {
-        //
+        $supplier->update($request->all());
+        return redirect()->route('suppliers.index')->with('EDITsupplier','supplier editing successful');
     }
 
     /**
@@ -81,6 +88,8 @@ class SupplierController extends Controller
      */
     public function destroy(supplier $supplier)
     {
-        //
+        $supplier->delete();
+
+        return redirect()->route('suppliers.index')->with('DELsupplier','supplier deleted successfully');
     }
 }

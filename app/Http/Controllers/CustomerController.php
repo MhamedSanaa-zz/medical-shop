@@ -36,7 +36,14 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
+        $customer = new customer;
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
+        $customer->email = $request->email;
+        $customer->address = $request->address;
+        $customer->save();
+        return redirect()->route('customers.index')->with('ADDcustomer','customer addition successful');
     }
 
     /**
@@ -47,7 +54,7 @@ class CustomerController extends Controller
      */
     public function show(customer $customer)
     {
-        //
+        return view('customer.show')->with('customer', $customer);
     }
 
     /**
@@ -58,7 +65,7 @@ class CustomerController extends Controller
      */
     public function edit(customer $customer)
     {
-        //
+        return view('customer.edit', compact('customer'));
     }
 
     /**
@@ -70,7 +77,8 @@ class CustomerController extends Controller
      */
     public function update(Request $request, customer $customer)
     {
-        //
+        $customer->update($request->all());
+        return redirect()->route('customers.index')->with('EDITcustomer','customer editing successful');
     }
 
     /**
@@ -81,6 +89,8 @@ class CustomerController extends Controller
      */
     public function destroy(customer $customer)
     {
-        //
+        $customer->delete();
+
+        return redirect()->route('customers.index')->with('DELcustomer','customer deleted successfully');
     }
 }
