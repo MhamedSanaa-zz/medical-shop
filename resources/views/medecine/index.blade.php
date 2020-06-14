@@ -9,7 +9,8 @@
 <div class="container my-5">
                <div class="card-body text-center">
                     <h4 class="card-title">list medecines</h4>
-                    <div class="card">
+                 </div>   
+                    <a href="{{route('medecine.create')}}" class="float-right"><button class="btn btn-primary">add medecine</button> </a> 
                     @if (session('addmedecine'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session('addmedecine') }}
@@ -62,8 +63,7 @@
             </tbody>
             @endforeach
           </table>   
-          <a href="{{ route('medecine.create') }}" class="btn btn-outline-primary btn-lg float-right" role="button"
-    aria-pressed="true">add medecine</a>
+
                </div>
               </div>
               

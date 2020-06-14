@@ -44,7 +44,7 @@ class MedecineController extends Controller
         $medecine->name=$request->name;
         $medecine->generic=$request->generic;
         $medecine->type_id=$request->type;
-        $medecine->status=1;
+        $medecine->status=0;
         $medecine->price=$request->price;
         $medecine->description=$request->description;
        

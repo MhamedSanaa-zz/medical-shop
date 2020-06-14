@@ -25,6 +25,7 @@
     <th ><input type="checkbox" name="checkbox[]" value="{{$medecine->id}}" ></th>
     <td>{{$medecine->name}}</td>
     <td><input type="number" name="qty[]" class="form-control"  placeholder="insert the quantity" ></td>
+    <td><input type="hidden" name="price" value="{{$medecine->price}}"></td>
     </tr>
     </tbody>
     

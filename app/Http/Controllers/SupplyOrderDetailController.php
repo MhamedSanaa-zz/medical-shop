@@ -52,6 +52,7 @@ class SupplyOrderDetailController extends Controller
                 $data [] = $qty;
             }
         }
+        $somme=0;
         for ( $i=0 ; $i<count($request->checkbox);$i++)
         {
             
@@ -62,10 +63,13 @@ class SupplyOrderDetailController extends Controller
                 $supply_order_detail->batch_nbr=rand(0,1000000);
                 $supply_order_detail->qty=$data[$i];
                 $supply_order_detail->save();
+
+                $somme = $somme+$request->price * $data[$i];
+
         }
         
 
-        return redirect()->route('supplyOrderDetail.index')->with('addsupplier','supply order added successfully');
+        return redirect()->route('supplyOrderDetail.index',compact('somme'))->with('addsupplier','supply order added successfully');
     }
 
     /**

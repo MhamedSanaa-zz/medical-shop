@@ -8,12 +8,16 @@
       <br>
       @if(session('addsupplier'))
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>{{ session('addsupplier') }}</strong>
+  <strong>{{ session('addsupplier')}} @if (isset($_GET['somme']))
+{{$_GET['somme']}}$
+@endif</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
 @endif
+
         <ul class="list-group">
         @foreach($supplierName as $supplier)
         
