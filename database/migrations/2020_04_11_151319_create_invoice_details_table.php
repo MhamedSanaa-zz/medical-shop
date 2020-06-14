@@ -18,8 +18,8 @@ class CreateInvoiceDetailsTable extends Migration
             $table->unsignedBigInteger('invoice_id');
             $table->unsignedBigInteger('medecine_id');
             $table->integer('qty');
-            $table->foreign('invoice_id')->references('id')->on('invoices');
-            $table->foreign('medecine_id')->references('id')->on('medecines');
+            $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
+            $table->foreign('medecine_id')->references('id')->on('medecines')->onDelete('cascade');
 
         });
     }

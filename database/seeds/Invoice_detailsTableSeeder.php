@@ -11,6 +11,10 @@ class Invoice_detailsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(invoice_detail::class,10)->create();
+        //factory(invoice_detail::class,10)->create();
+        $invoices = factory(App\invoice::class,20)->create();
+        $medecines = factory(App\medecine::class,20)->create();
+
+        $invoices->first()->medecines()->sync($medecines);
     }
 }

@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/customer', 'CustomerController');
     Route::resource('/role', 'RoleController');
     Route::resource('/invoice', 'invoiceController');
+    Route::resource('/invoiceDetail', 'invoiceDetailController');
     Route::resource('/supplier', 'SupplierController');
     Route::resource('/type', 'TypeController');
 });

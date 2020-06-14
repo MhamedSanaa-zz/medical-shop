@@ -32,10 +32,10 @@
     <table class='table'>
        <thead>
         <tr>
-            <th>name</th>
-            <th>phone</th>
-            <th>eamil</th>
-            <th>address</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
         </tr>
        </thead>
        <tbody>

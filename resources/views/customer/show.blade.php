@@ -22,11 +22,11 @@
 <table class='table'>
        <thead>
         <tr>
-            <th>supply orders list</th>
+            <th>customer invoice list</th>
        </thead>
        <tbody>
        @foreach($customer->invoices as $invoice)
-            <tr>
+            <tr onclick="document.location='{{ route('invoice.show', $invoice->id) }}'" style="cursor:pointer">
                 <td>{{ $invoice->id }}</td>
                 <td>{{ $invoice->created_at }}</td>
                 

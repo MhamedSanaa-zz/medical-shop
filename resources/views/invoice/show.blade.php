@@ -19,11 +19,21 @@
        </tbody>
     </table>
     <div>
-    <label for="">purchased medecine</label>
-        <ul>
-            @foreach($invoice->medecines as $medecine)
-                <li>{{ $medecine->name }}</li>
+    <table class='table'>
+       <thead>
+        <tr>
+            <th>medecine name</th>
+            <th>Quantity</th>
+        </tr>
+       </thead>
+       <tbody>
+        @foreach($invoice->medecines as $medecine)
+            <tr>
+                <td>{{ $medecine->name }}</td>
+                <td>{{ $medecine->pivot->qty}}</td>
+            </tr>
             @endforeach
-        </ul>
+       </tbody>
+    </table>
     </div>
 @endsection

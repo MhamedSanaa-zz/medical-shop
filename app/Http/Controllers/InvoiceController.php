@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\medecine;
 use App\invoice;
+use App\customer;
+use App\invoice_detail;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -15,7 +18,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $invoices=invoice::all();
-        return view('invoice.index' ,compact('invoices'));;
+        return view('invoice.index' ,compact('invoices'));
     }
 
     /**
@@ -25,7 +28,8 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
+        $customers=customer::all();
+        return view('invoice.create',compact('customers'));
     }
 
     /**
@@ -36,7 +40,11 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $invoice=new invoice();
+        $invoice->customer_id=$request->customer_id;
+        $invoice->save();
+        $invoice_id=$invoice->id;
+        return redirect()->route('invoiceDetail.create',compact('invoice_id'));
     }
 
     /**
@@ -47,6 +55,7 @@ class InvoiceController extends Controller
      */
     public function show(invoice $invoice)
     {
+        $medecines = medecine::all();
         return view('invoice.show',compact('invoice'));
     }
 

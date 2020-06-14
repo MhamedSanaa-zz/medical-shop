@@ -22,7 +22,7 @@
 <table class='table'>
        <thead>
         <tr>
-            <th>invoice list</th>
+            <th>ordered supply list</th>
        </thead>
        <tbody>
        @foreach($supplier->supply_orders as $supply_order)

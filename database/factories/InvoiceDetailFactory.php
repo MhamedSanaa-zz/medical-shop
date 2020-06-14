@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 
 $factory->define(invoice_detail::class, function (Faker $faker) {
     return [
-        'invoice_id' => invoice::get('id')->random(),
-        'medecine_id' => medecine::get('id')->random(),
+        //'invoice_id' => invoice::get('id')->random(),
+        //'medecine_id' => medecine::get('id')->random(),
         'qty' => $faker->randomDigitNotNull,
     ];
 });

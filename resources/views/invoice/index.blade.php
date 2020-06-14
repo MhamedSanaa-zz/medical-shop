@@ -8,7 +8,7 @@
     <table class='table table-hover'>
        <thead>
         <tr>
-            <th>name</th>
+            <th>customer name</th>
             <th>purchase date</th>
         </tr>
        </thead>

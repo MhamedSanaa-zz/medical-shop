@@ -22,6 +22,6 @@ class medecine extends Model
     }
     public function invoices()
     {
-        return $this->belongsToMany('App\invoice','invoice_details')->using('App\invoice_detail')->withPivot('qty');
+        return $this->belongsToMany('App\invoice','invoice_details')->using('App\invoice_detail')->withPivot(['qty']);
     }
 }

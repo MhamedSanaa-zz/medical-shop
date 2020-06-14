@@ -21,7 +21,7 @@ class CreateMedecinesTable extends Migration
             $table->tinyInteger('status');
             $table->double('price', 6, 3);
             $table->text('description');
-            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
         });
     }
 

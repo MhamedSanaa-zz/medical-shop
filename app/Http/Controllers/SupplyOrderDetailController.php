@@ -81,9 +81,8 @@ class SupplyOrderDetailController extends Controller
         {
             $medecines []=medecine::where('id',$supply_order_detail->medecine_id)->first();
         }
-        
-        
-       return view('supplyOrderDetail.show',compact('medecines','supply_order_details'));
+        //return dd($medecines);
+        return view('supplyOrderDetail.show',compact('supply_order_details'))->with('medecines',$medecines);
     }
 
     /**
