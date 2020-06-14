@@ -60,4 +60,5 @@
         @endforeach
        </tbody>
     </table>
+    {{ $customers->links() }}
 @endsection

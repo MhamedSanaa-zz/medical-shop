@@ -17,7 +17,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices=invoice::all();
+        $invoices=invoice::paginate(20);
         return view('invoice.index' ,compact('invoices'));
     }
 
@@ -90,6 +90,8 @@ class InvoiceController extends Controller
      */
     public function destroy(invoice $invoice)
     {
-        //
+        invoice::where('id',$invoice->id)->delete();
+       
+        return redirect()->route('invoice.index')->with('cancel','invoice canceled');
     }
 }

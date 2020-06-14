@@ -8,6 +8,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if (Auth::user())
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a href="{{ route('customer.index') }}" class="nav-link">customers</a>
@@ -34,6 +35,7 @@
                             <a href="{{ route('type.index') }}" class="nav-link">types</a>
                         </li>
                     </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

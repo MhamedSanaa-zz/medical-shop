@@ -14,4 +14,5 @@
 </div>
 <button type="submit" class="btn btn-success ">go </button>
 </form>
+{{ $customers->links() }}
 @endsection

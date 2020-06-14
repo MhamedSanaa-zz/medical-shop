@@ -53,4 +53,5 @@
         @endforeach
        </tbody>
     </table>
+    {{ $roles->links() }}
 @endsection
