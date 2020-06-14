@@ -28,7 +28,7 @@ class InvoiceDetailController extends Controller
      */
     public function create()
     {
-        $medecines=medecine::all();
+        $medecines=medecine::where('status','=',1)->get();
         return view('invoiceDetail.create',compact('medecines'));
     }
 
