@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\DB;
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</li>
       </ol>
       <!-- Icon Cards-->
       <div class="row">
