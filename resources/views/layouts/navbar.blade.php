@@ -26,7 +26,7 @@
                             <a href="{{ route('invoice.index') }}" class="nav-link">invoices</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('supplyOrder.index') }}" class="nav-link">orders</a>
+                            <a href="{{ route('supplyOrderDetail.index') }}" class="nav-link">orders</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('role.index') }}" class="nav-link">roles</a>
