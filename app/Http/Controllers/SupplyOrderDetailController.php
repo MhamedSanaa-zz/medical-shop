@@ -106,9 +106,19 @@ class SupplyOrderDetailController extends Controller
      * @param  \App\supply_order_detail  $supply_order_detail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, supply_order_detail $supply_order_detail)
+    public function update(Request $request, $id)
     {
-        //
+        //$validatedData=$request->validate($this->validationRules());
+       $supply_order_detail= supply_order_detail::where('id',$id)->first();
+        $supply_order_detail->medecine_id=$request->medecine_id;
+        $supply_order_detail->qty=$request->qty;
+        $supply_order_detail->update();
+
+
+        
+        return redirect()->route('supplyOrderDetail.index')->with('addsupplier','order updated successfully');
+       
+                      
     }
 
     /**
@@ -117,10 +127,19 @@ class SupplyOrderDetailController extends Controller
      * @param  \App\supply_order_detail  $supply_order_detail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(supply_order_detail $supply_order_detail)
+    public function destroy($id)
     {
-        //
+        
+        supply_order_detail::where('id',$id)->delete();
+        return redirect()->route('supplyOrderDetail.index')->with('addsupplier','order deleted successfully');
     }
     
-    
+    private function validationRules()
+    {
+        return [
+            'medecine' => 'required',
+            'qty' => 'required',
+        
+        ];
+    }
 }

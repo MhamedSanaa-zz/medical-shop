@@ -8,9 +8,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    {{ Auth::user()->role->role}}
                     <ul class="navbar-nav mr-auto">
-                    @if(Auth::user()->role->role=="Eddie Grant")
                         <li class="nav-item">
                             <a href="{{ route('customer.index') }}" class="nav-link">customers</a>
                         </li>
@@ -27,7 +25,7 @@
                             <a href="{{ route('invoice.index') }}" class="nav-link">invoices</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('supplyOrder.index') }}" class="nav-link">orders</a>
+                            <a href="{{ route('supplyOrderDetail.index') }}" class="nav-link">orders</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('role.index') }}" class="nav-link">roles</a>
@@ -35,7 +33,6 @@
                         <li class="nav-item">
                             <a href="{{ route('type.index') }}" class="nav-link">types</a>
                         </li>
-                    @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

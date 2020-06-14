@@ -41,16 +41,21 @@ class StockController extends Controller
     public function store(Request $request)
     {
         
-        $request->validate($this->validationRules());
+            $request->validate($this->validationRules());
             $stock=new stock();
             $stock->qty=$request->qty;
             $stock->batch_nbr= $request->batch_nbr;
             $stock->expiration_date=$request->expiration_date;
             $stock->medecine_id=$request->medecine_id;
+            $stock->save();
+            
+            DB::table('medecines')->where('id',$request->medecine_id)->update(
+                [
+                    'status' => 1
+                ]
+                );
+    
         
-       
-        $stock->save();
-
           
         return redirect()->route('stock.index')->with('addstock','stock added successfully');
     }
@@ -114,7 +119,7 @@ class StockController extends Controller
         return [
             'medecine_id' => 'required',
             'qty' => 'required',
-            'batch_nbr' => ['required','unique:stocks'],
+            'batch_nbr' => 'required',
             'expiration_date' => 'required|date'
         ];
     }

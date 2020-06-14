@@ -84,8 +84,11 @@ class SupplyOrderController extends Controller
      * @param  \App\supply_order  $supply_order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(supply_order $supply_order)
+    public function destroy($id)
     {
-        //
+        
+        supply_order::where('id',$id)->delete();
+       
+        return redirect()->route('supplyOrderDetail.index')->with('addsupplier','supply order canceled');
     }
 }
